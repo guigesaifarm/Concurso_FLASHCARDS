@@ -1,54 +1,54 @@
-<script>
+ <script>
         const cardsData = [
             {
-                category: "Gestão Democrática",
-                front: "O que caracteriza a Gestão Democrática na educação pública segundo a legislação brasileira?",
-                back: "É o princípio que garante a participação coletiva da comunidade escolar e local nas decisões políticas, pedagógicas e administrativas da escola, promovendo transparência, autonomia e controle social."
+                category: "Conceito de Currículo",
+                front: "O que é o Currículo Escolar em sua concepção contemporânea?",
+                back: "Não é apenas a lista de matérias ou livros, mas o <b>conjunto de experiências de aprendizagem</b>, saberes, valores e práticas sociais vivenciadas pelos alunos dentro do ambiente escolar e organizadas com intencionalidade pedagógica."
             },
             {
-                category: "Amparo Legal (LDB)",
-                front: "Quais são os dois mecanismos básicos de Gestão Democrática expressos no artigo 14 da LDB?",
-                back: "1. Participação dos profissionais da educação na elaboração do Projeto Político-Pedagógico (PPP).<br><br>2. Participação das comunidades escolar e local em Conselhos Escolares ou equivalentes."
+                category: "Níveis do Currículo",
+                front: "O que diferencia o Currículo Formal, Real e Oculto?",
+                back: "<b>Formal (Prescrito):</b> O documento oficial e normativo (ex.: BNCC).<br><br><b>Real (Em Ação):</b> O que acontece de fato no dia a dia da sala de aula.<br><br><b>Oculto:</b> As aprendizagens implícitas (atitudes, valores e regras sociais) assimiladas na convivência."
             },
             {
-                category: "Instâncias Colegiadas",
-                front: "O que é o Conselho Escolar e qual a sua função principal?",
-                back: "É um órgão colegiado deliberativo, consultivo e fiscalizador, composto por representantes de todos os segmentos da comunidade escolar (direção, professores, funcionários, pais e alunos). É o principal espaço de tomada de decisões da escola."
+                category: "Tipos de Avaliação",
+                front: "Quais são as 3 funções clássicas da Avaliação da Aprendizagem?",
+                back: "1. <b>Diagnóstica:</b> Mapeia conhecimentos prévios e necessidades iniciais.<br>2. <b>Formativa:</b> Acompanha continuamente o aprendizado para regular o ensino.<br>3. <b>Somativa:</b> Balanço e síntese final das aprendizagens para fins de classificação ou certificação."
             },
             {
-                category: "Projeto Político-Pedagógico",
-                front: "Qual é o significado das dimensões 'Político' e 'Pedagógico' no PPP?",
-                back: "<b>Político:</b> Compromisso com a formação de cidadãos críticos para a sociedade.<br><br><b>Pedagógico:</b> Organização e planejamento das ações de ensino-aprendizagem.<br><br>Juntos, definem a identidade e os objetivos da escola."
+                category: "LDB e Avaliação",
+                front: "O que a LDB (Art. 24, V) determina sobre a avaliação do rendimento escolar?",
+                back: "Determina que a avaliação deve ser <b>contínua e cumulativa</b>, com prevalência dos aspectos <b>qualitativos sobre os quantitativos</b> e dos resultados ao longo do período sobre os de eventuais exames finais."
             },
             {
-                category: "Planejamento Educacional",
-                front: "Quais são os 3 principais níveis do planejamento na educação (do macro ao micro)?",
-                back: "1. <b>Educacional (ou de Sistema):</b> Nível macro (ex.: Plano Nacional de Educação - PNE).<br><br>2. <b>Escolar (PPP/Plano da Escola):</b> Nível meso (visão global da instituição).<br><br>3. <b>De Ensino / Plano de Aula:</b> Nível micro (prática direta em sala de aula)."
+                category: "Recuperação Contínua",
+                front: "O que é a Recuperação da Aprendizagem na perspectiva democrática e inclusiva?",
+                back: "É um <b>direito do estudante</b> que deve ocorrer de forma <b>contínua e paralela</b> ao processo de ensino, visando sanar lacunas e reorientar a aprendizagem imediatamente, e não apenas uma prova final ao fim do ano."
             },
             {
-                category: "Autonomia Escolar",
-                front: "Segundo o artigo 15 da LDB, em quais três dimensões as escolas públicas devem progressivamente alcançar autonomia?",
-                back: "1. <b>Pedagógica</b> (elaboração das propostas de ensino).<br>2. <b>Administrativa</b> (organização interna).<br>3. <b>Gestão Financeira</b> (aplicação e prestação de contas dos recursos)."
+                category: "Recuperação vs. Recomposição",
+                front: "Qual a diferença entre 'Reforço/Recuperação' e 'Recomposição de Aprendizagens'?",
+                back: "<b>Recuperação/Reforço:</b> Retoma conteúdos pontuais não consolidados do ano em curso.<br><br><b>Recomposição:</b> Estratégia de equidade acelerada para recuperar saberes essenciais de anos anteriores que impedem o avanço do aluno no currículo atual."
             },
             {
-                category: "Etapas do Planejamento",
-                front: "Quais são os passos essenciais do ciclo de Planejamento Educacional?",
-                back: "1. <b>Diagnóstico:</b> Análise da realidade atual.<br>2. <b>Proposição:</b> Definição de objetivos, metas e estratégias.<br>3. <b>Execução:</b> Ação prática.<br>4. <b>Avaliação Contínua:</b> Acompanhamento e reorientação contínua."
+                category: "Avaliação Mediadora",
+                front: "O que defende a concepção de Avaliação Mediadora (Jussara Hoffmann)?",
+                back: "Defende que a avaliação não deve ser um instrumento de punição ou rotulação, mas sim de <b>diálogo, intervenção e provocação pedagógica</b> entre professor e estudante para promover a superação dos desafios."
             },
             {
-                category: "Modelos de Planejamento",
-                front: "Qual a diferença entre o planejamento tradicional (tecnocrático) e o participativo?",
-                back: "<b>Tradicional:</b> Centralizado, burocrático, rígido e imposto de cima para baixo.<br><br><b>Participativo:</b> Descentralizado, dinâmico, contínuo e construído coletivamente com a comunidade."
+                category: "BNCC e Direitos de Aprendizagem",
+                front: "Qual o papel da BNCC no currículo das escolas brasileiras?",
+                back: "A BNCC funciona como um <b>documento normativo de referência nacional</b> que fixa as competências e aprendizagens essenciais para a Educação Básica, devendo ser adaptada e complementada pela parte diversificada de cada região."
             },
             {
-                category: "Diagnóstico Escolar",
-                front: "Por que o Diagnóstico da realidade escolar é fundamental antes da elaboração do plano?",
-                back: "Porque impede que o planejamento seja abstrato ou desconectado da realidade. O diagnóstico identifica as necessidades, desafios e potencialidades locais para traçar metas reais."
+                category: "Equidade na Avaliação",
+                front: "O que significa ter 'Equidade' no processo de Avaliação e Recuperação?",
+                back: "Significa reconhecer que os alunos têm pontos de partida e ritmos diferentes, fornecendo <b>apoios e estratégias diferenciadas</b> para que todos consigam atingir os mesmos direitos de aprendizagem."
             },
             {
-                category: "Prática Pedagógica",
-                front: "O que significa dizer que o plano de ensino / plano de aula deve ser 'flexível'?",
-                back: "Significa que o plano é uma hipótese de trabalho e não um documento estático. Ele pode e deve ser readequado no decorrer das aulas de acordo com as necessidades e ritmo dos estudantes."
+                category: "Interdisciplinaridade",
+                front: "Como o currículo deve abordar a organização dos conhecimentos segundo as diretrizes atuais?",
+                back: "De forma <b>integrada, contextualizada e interdisciplinar</b>, superando a fragmentação rígida por disciplinas e relacionando os conteúdos aos problemas e desafios da vida real dos estudantes."
             }
         ];
 
