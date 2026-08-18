@@ -3,7 +3,7 @@
             --bg-color: #f4f6f9;
             --card-bg: #ffffff;
             --primary-color: #2c3e50;
-            --accent-color: #2980b9;
+            --accent-color: #27ae60;
             --text-color: #333333;
             --text-muted: #7f8c8d;
             --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -34,18 +34,18 @@
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.3rem;
             color: var(--primary-color);
             margin-bottom: 8px;
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         .tracker {
-            font-size: 0.95rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--accent-color);
             margin-bottom: 15px;
@@ -100,7 +100,7 @@
         }
 
         .card-category {
-            font-size: 0.8rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             font-weight: 700;
@@ -108,7 +108,7 @@
         }
 
         .card-content {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             line-height: 1.6;
             color: var(--primary-color);
             font-weight: 500;
@@ -117,13 +117,13 @@
         }
 
         .card-face-back .card-content {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             text-align: left;
             color: #34495e;
         }
 
         .card-hint {
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             text-align: center;
             font-style: italic;
@@ -141,7 +141,7 @@
             color: var(--primary-color);
             border: 1px solid #dcdfe6;
             padding: 12px 24px;
-            font-size: 0.95rem;
+            font-size: 1.2rem;
             font-weight: 600;
             border-radius: 30px;
             cursor: pointer;
@@ -165,10 +165,10 @@
                 height: 380px;
             }
             .card-content {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
             .card-face-back .card-content {
-                font-size: 0.95rem;
+                font-size: 1.1rem;
             }
         }
     </style>
