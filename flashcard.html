@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards Interativos: Gestão Democrática e Planejamento Educacional</title>
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --primary-color: #2c3e50;
+            --accent-color: #2980b9;
+            --text-color: #333333;
+            --text-muted: #7f8c8d;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --border-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .tracker {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        /* Flashcard Container */
+        .scene {
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            perspective: 1000px;
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--border-radius);
+            background: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px;
+            border: 1px solid #e1e8ed;
+        }
+
+        .card-face-front {
+            background: #ffffff;
+        }
+
+        .card-face-back {
+            background: #f8fafc;
+            transform: rotateY(180deg);
+            border-left: 6px solid var(--accent-color);
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .card-content {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-align: center;
+            margin: auto 0;
+        }
+
+        .card-face-back .card-content {
+            font-size: 1.1rem;
+            text-align: left;
+            color: #34495e;
+        }
+
+        .card-hint {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        button {
+            background-color: var(--card-bg);
+            color: var(--primary-color);
+            border: 1px solid #dcdfe6;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        button:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 640px) {
+            .scene {
+                height: 380px;
+            }
+            .card-content {
+                font-size: 1.1rem;
+            }
+            .card-face-back .card-content {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Flashcards Interativos</h1>
+        <p>Gestão Democrática & Planejamento Educacional</p>
+    </header>
+
+    <div class="tracker" id="card-tracker">Card 1 de 10</div>
+
+    <div class="scene" onclick="flipCard()">
+        <div class="card" id="flashcard">
+            <div class="card-face card-face-front">
+                <div class="card-category" id="card-category">Gestão Democrática</div>
+                <div class="card-content" id="card-front">Carregando...</div>
+                <div class="card-hint">💡 Clique para ver a resposta</div>
+            </div>
+            <div class="card-face card-face-back">
+                <div class="card-category">Resposta</div>
+                <div class="card-content" id="card-back">Carregando...</div>
+                <div class="card-hint">💡 Clique para virar novamente</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="prevCard()">Anterior</button>
+        <button onclick="flipCard()">Virar Card</button>
+        <button onclick="nextCard()">Próximo</button>
+    </div>
+
+    <script>
+        const cardsData = [
+            {
+                category: "Gestão Democrática",
+                front: "O que caracteriza a Gestão Democrática na educação pública segundo a legislação brasileira?",
+                back: "É o princípio que garante a participação coletiva da comunidade escolar e local nas decisões políticas, pedagógicas e administrativas da escola, promovendo transparência, autonomia e controle social."
+            },
+            {
+                category: "Amparo Legal (LDB)",
+                front: "Quais são os dois mecanismos básicos de Gestão Democrática expressos no artigo 14 da LDB?",
+                back: "1. Participação dos profissionais da educação na elaboração do Projeto Político-Pedagógico (PPP).<br><br>2. Participação das comunidades escolar e local em Conselhos Escolares ou equivalentes."
+            },
+            {
+                category: "Instâncias Colegiadas",
+                front: "O que é o Conselho Escolar e qual a sua função principal?",
+                back: "É um órgão colegiado deliberativo, consultivo e fiscalizador, composto por representantes de todos os segmentos da comunidade escolar (direção, professores, funcionários, pais e alunos). É o principal espaço de tomada de decisões da escola."
+            },
+            {
+                category: "Projeto Político-Pedagógico",
+                front: "Qual é o significado das dimensões 'Político' e 'Pedagógico' no PPP?",
+                back: "<b>Político:</b> Compromisso com a formação de cidadãos críticos para a sociedade.<br><br><b>Pedagógico:</b> Organização e planejamento das ações de ensino-aprendizagem.<br><br>Juntos, definem a identidade e os objetivos da escola."
+            },
+            {
+                category: "Planejamento Educacional",
+                front: "Quais são os 3 principais níveis do planejamento na educação (do macro ao micro)?",
+                back: "1. <b>Educacional (ou de Sistema):</b> Nível macro (ex.: Plano Nacional de Educação - PNE).<br><br>2. <b>Escolar (PPP/Plano da Escola):</b> Nível meso (visão global da instituição).<br><br>3. <b>De Ensino / Plano de Aula:</b> Nível micro (prática direta em sala de aula)."
+            },
+            {
+                category: "Autonomia Escolar",
+                front: "Segundo o artigo 15 da LDB, em quais três dimensões as escolas públicas devem progressivamente alcançar autonomia?",
+                back: "1. <b>Pedagógica</b> (elaboração das propostas de ensino).<br>2. <b>Administrativa</b> (organização interna).<br>3. <b>Gestão Financeira</b> (aplicação e prestação de contas dos recursos)."
+            },
+            {
+                category: "Etapas do Planejamento",
+                front: "Quais são os passos essenciais do ciclo de Planejamento Educacional?",
+                back: "1. <b>Diagnóstico:</b> Análise da realidade atual.<br>2. <b>Proposição:</b> Definição de objetivos, metas e estratégias.<br>3. <b>Execução:</b> Ação prática.<br>4. <b>Avaliação Contínua:</b> Acompanhamento e reorientação contínua."
+            },
+            {
+                category: "Modelos de Planejamento",
+                front: "Qual a diferença entre o planejamento tradicional (tecnocrático) e o participativo?",
+                back: "<b>Tradicional:</b> Centralizado, burocrático, rígido e imposto de cima para baixo.<br><br><b>Participativo:</b> Descentralizado, dinâmico, contínuo e construído coletivamente com a comunidade."
+            },
+            {
+                category: "Diagnóstico Escolar",
+                front: "Por que o Diagnóstico da realidade escolar é fundamental antes da elaboração do plano?",
+                back: "Porque impede que o planejamento seja abstrato ou desconectado da realidade. O diagnóstico identifica as necessidades, desafios e potencialidades locais para traçar metas reais."
+            },
+            {
+                category: "Prática Pedagógica",
+                front: "O que significa dizer que o plano de ensino / plano de aula deve ser 'flexível'?",
+                back: "Significa que o plano é uma hipótese de trabalho e não um documento estático. Ele pode e deve ser readequado no decorrer das aulas de acordo com as necessidades e ritmo dos estudantes."
+            }
+        ];
+
+        let currentIndex = 0;
+        const cardElement = document.getElementById('flashcard');
+        const categoryElement = document.getElementById('card-category');
+        const frontElement = document.getElementById('card-front');
+        const backElement = document.getElementById('card-back');
+        const trackerElement = document.getElementById('card-tracker');
+
+        function updateCard() {
+            cardElement.classList.remove('is-flipped');
+            setTimeout(() => {
+                const currentData = cardsData[currentIndex];
+                categoryElement.innerText = currentData.category;
+                frontElement.innerHTML = currentData.front;
+                backElement.innerHTML = currentData.back;
+                trackerElement.innerText = `Card ${currentIndex + 1} de ${cardsData.length}`;
+            }, 150);
+        }
+
+        function flipCard() {
+            cardElement.classList.toggle('is-flipped');
+        }
+
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % cardsData.length;
+            updateCard();
+        }
+
+        function prevCard() {
+            currentIndex = (currentIndex - 1 + cardsData.length) % cardsData.length;
+            updateCard();
+        }
+
+        // Inicializar
+        updateCard();
+
+        // Suporte a teclas do teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextCard();
+            if (e.key === 'ArrowLeft') prevCard();
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                flipCard();
+            }
+        });
+    </script>
+</body>
+</html>
